@@ -3,10 +3,18 @@
 <h3> Difficulty Level: <%= @activity.difficulty %> </h3>
 
 <h3> Campers Signed Up </h3>
-    <% @activity.campers.uniq.each do |camper| %>
-    <p>*<%= link_to camper.name, camper_path(camper) %></p>
+    <% @activity.act_time_hash.each do |time, campers| %>
+    <ul> 
+        <li> Time: <%= time %>
+        <ul> <% campers.uniq.each do |camper| %> 
+            <li> <%= link_to camper.name, camper_path(camper) %> </li>
+            <% end %>
+        </ul>
+         </li>
+    </ul>
     <% end %>
 
+    
 <br>
 <br>
 <%= button_to "Return to Acitivities Index", activities_path, {method: :get} %>
