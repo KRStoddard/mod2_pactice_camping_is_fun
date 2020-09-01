@@ -5,7 +5,7 @@
 <h3> Campers Signed Up </h3>
     <% @activity.act_time_hash.each do |time, campers| %>
     <ul> 
-        <li> Time: <%= time %>
+        <li> Time: <%= time %>:00 (Military Time)
         <ul> <% campers.uniq.each do |camper| %> 
             <li> <%= link_to camper.name, camper_path(camper) %> </li>
             <% end %>
