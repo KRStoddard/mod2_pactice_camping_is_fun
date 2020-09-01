@@ -1,0 +1,12 @@
+<h1> Profile Page for <%= @camper.name %> </h1>
+
+<h3> Age: <%= @camper.age %> </h3>
+<br>
+<br>
+<h3>Activities</h3>
+<% @camper.list_signups.each do |signup| %>
+<p>* Time: <%= signup.time%>, <%= link_to signup.activity.name, activity_path(signup.activity) %> </p>
+<% end %>
+<br>
+<br>
+<%= button_to "Return to Camper Index", campers_path, {method: :get} %>

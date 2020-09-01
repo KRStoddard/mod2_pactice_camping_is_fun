@@ -1,0 +1,12 @@
+<h1> Information Page for <%= @activity.name %> </h1>
+
+<h3> Difficulty Level: <%= @activity.difficulty %> </h3>
+
+<h3> Campers Signed Up </h3>
+    <% @activity.campers.uniq.each do |camper| %>
+    <p>*<%= link_to camper.name, camper_path(camper) %></p>
+    <% end %>
+
+<br>
+<br>
+<%= button_to "Return to Acitivities Index", activities_path, {method: :get} %>
